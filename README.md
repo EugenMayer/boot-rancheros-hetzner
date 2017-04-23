@@ -209,3 +209,10 @@ Warning: Permanently added 'hetzbox,1.2.3.4' (ECDSA) to the list of known hosts.
 Linux rancher 4.4.19-rancher #1 SMP Tue Sep 6 18:14:47 UTC 2016 x86_64 GNU/Linux
 ```
 
+
+_after rebbot login with displayed credentials and run_
+
+```
+sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+```
+
