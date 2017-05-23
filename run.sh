@@ -9,21 +9,19 @@ echo "## Installing kexec-tools, aria2" && \
     apt-get clean
 
 echo "## Downloading RancherOS ISO" && \
-    aria2c https://github.com/rancher/os/releases/download/v1.0.1-rc1/rancheros.iso
+    aria2c https://github.com/rancher/os/releases/download/v1.0.1/rancheros.iso
 
-echo "## CRC Checksum of rancheros.iso - v1.0.1-rc1" && \
+echo "## CRC Checksum of rancheros.iso - v1.0.1" && \
     sha256sum rancheros.iso  | grep  \
-        32d21537378de2a7e5799e46ba7f5fa7e0afd28dde69e5f9370f34c67d5f6620;
+        980ce147fbdd9bc4669c042347014ff1068d52fe4c258f3a3e660b1c5080277e;
     [ $? -eq 0 ] && mount -t iso9660 rancheros.iso /mnt || echo bad iso image
-
 
 echo "## Entering Mounted RancherOS ISO" && \
     [ -d /mnt/boot ] \
         && cd /mnt/ \
         || echo exit
 
-
-echo "## Credentials: ${password}    (rancher)" && echo "##  Kernel-Executing RancherOS" && \
-    kexec --initrd ./boot/initrd-v1.0.1-rc1 \
+echo "## Credentials: ${password}    (rancher)" && echo "## Kernel-Executing RancherOS" && \
+    kexec --initrd ./boot/initrd-v1.0.1 \
     --command-line="rancher.password=${password}" \
-    ./boot/vmlinuz-4.9.22-rancher
+    ./boot/vmlinuz-4.9.24-rancher
