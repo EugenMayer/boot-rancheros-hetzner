@@ -28,8 +28,7 @@ _run the line below_
 curl https://raw.githubusercontent.com/hkeio/boot-rancheros-hetzner/master/run.sh > rancher.sh && chmod +x rancher.sh && ./rancher.sh
 ```
 
-_install rancher os_
-http://docs.rancher.com/os/running-rancheros/server/install-to-disk/
+Now the server reboots into the rancher-installer-iso. You need to login and do the usual "install to local disk" installation steps, see http://docs.rancher.com/os/running-rancheros/server/install-to-disk/
 
 _after rebbot login with displayed credentials and run_
 
